@@ -19,7 +19,8 @@ function App() {
 
     try {
       // Send the request to our backend
-      const response = await axios.post('http://localhost:5001/api/call', { phoneNumber });
+      const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+      const response = await axios.post(`${API_BASE_URL}/api/call`, { phoneNumber });
       
       if (response.data.success) {
         // Simulate the steps visually
